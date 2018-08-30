@@ -171,6 +171,38 @@ def envioazure(Autorizacion, DeviceID,Nombre,appId,productId, values,tipo,bateri
 
         ]
 
+    if tipo == "Detector Puerta":
+        dato=0
+        print values
+        if values=="True":
+            dato=1
+        elif values=="False":
+            dato=0
+
+        dictjson["type"] = 991
+
+        dictjson["value"] = [
+            {
+                "name": "Puerta",
+                "type": "1026",
+                "value": dato
+            }
+            , {
+                "name": "Bateria",
+                "type": "5",
+                "value": bateria,
+                "unit": "%"
+            }
+            , {
+                "name": "Señal",
+                "type": "15",
+                "value": senal,
+                "unit": "%"
+
+            }
+
+        ]
+
 
     if tipo == "Ultrasonico":
         dictjson["type"] = 991
@@ -198,6 +230,35 @@ def envioazure(Autorizacion, DeviceID,Nombre,appId,productId, values,tipo,bateri
             }
 
         ]
+        #dsad
+    if tipo == "Medidor Voltaje":
+        dictjson["type"] = 991
+        print values
+
+        dictjson["value"] = [
+            {
+                "name": "Tensión",
+                "type": "1106",
+                "value": values,
+                "unit": "V"
+            }
+            , {
+                "name": "Bateria",
+                "type": "5",
+                "value": bateria,
+                "unit": "%"
+            }
+            , {
+                "name": "Señal",
+                "type": "15",
+                "value": senal,
+                "unit": "%"
+
+            }
+
+        ]
+
+
 
 
 
