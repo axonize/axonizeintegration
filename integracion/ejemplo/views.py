@@ -90,7 +90,7 @@ def definitiva(request):
                 #break
 
             except ObjectDoesNotExist:
-                print "Error"
+                print "Error "+codigosensor
     return HttpResponse("pong")
 
 
@@ -290,12 +290,13 @@ def envioazure(Autorizacion, DeviceID,Nombre,appId,productId, values,tipo,bateri
 
             ]
 
-        if tipo == "Corriente Trifasica":
-            valores = values.split("|")
-            dictjson["type"] = 991
-            # dictjson["unit"]: "%",
-            dictjson["value"] = [
-                {
+    if tipo == "Corriente Trifasica":
+        print "Sensor Trifasico"
+        valores = values.split("|")
+        dictjson["type"] = 991
+        # dictjson["unit"]: "%",
+        dictjson["value"] = [
+            {
                     "name": "Fase 1 Promedio",
                     "type": "1106",
                     "value": valores[0],
