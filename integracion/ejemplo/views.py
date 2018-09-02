@@ -258,6 +258,150 @@ def envioazure(Autorizacion, DeviceID,Nombre,appId,productId, values,tipo,bateri
 
         ]
 
+    if tipo == "Detector Voltaje":
+        dato = 0
+        print values
+        if values == "True":
+            dato = 1
+        elif values == "False":
+            dato = 0
+
+        dictjson["type"] = 991
+
+        dictjson["value"] = [
+        {
+            "name": "Detección Voltaje",
+            "type": "1026",
+            "value": dato
+        }
+                , {
+                    "name": "Bateria",
+                    "type": "5",
+                    "value": bateria,
+                    "unit": "%"
+                }
+                , {
+                    "name": "Señal",
+                    "type": "15",
+                    "value": senal,
+                    "unit": "%"
+
+                }
+
+            ]
+
+        if tipo == "Corriente Trifasica":
+            valores = values.split("|")
+            dictjson["type"] = 991
+            # dictjson["unit"]: "%",
+            dictjson["value"] = [
+                {
+                    "name": "Fase 1 Promedio",
+                    "type": "1106",
+                    "value": valores[0],
+                    "unit": "A"
+                },{
+                    "name": "Fase 1 Max",
+                    "type": "1106",
+                    "value": valores[1],
+                    "unit": "A"
+                },{
+                    "name": "Fase 1 Min",
+                    "type": "1106",
+                    "value": valores[2],
+                    "unit": "A"
+                },{
+                    "name": "Fase 1 Duty",
+                    "type": "1106",
+                    "value": valores[3],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Promedio",
+                    "type": "1106",
+                    "value": valores[4],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Max",
+                    "type": "1106",
+                    "value": valores[5],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Min",
+                    "type": "1106",
+                    "value": valores[6],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Duty",
+                    "type": "1106",
+                    "value": valores[7],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Promedio",
+                    "type": "1106",
+                    "value": valores[4],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Max",
+                    "type": "1106",
+                    "value": valores[5],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Min",
+                    "type": "1106",
+                    "value": valores[6],
+                    "unit": "A"
+                },{
+                    "name": "Fase 2 Duty",
+                    "type": "1106",
+                    "value": valores[7],
+                    "unit": "A"
+                },{
+                    "name": "Fase 3 Promedio",
+                    "type": "1106",
+                    "value": valores[8],
+                    "unit": "A"
+                },{
+                    "name": "Fase 3 Max",
+                    "type": "1106",
+                    "value": valores[9],
+                    "unit": "A"
+                },{
+                    "name": "Fase 3 Min",
+                    "type": "1106",
+                    "value": valores[10],
+                    "unit": "A"
+                },{
+                    "name": "Fase 3 Duty",
+                    "type": "1106",
+                    "value": valores[11],
+                    "unit": "A"
+                },{
+                    "name": "Horas",
+                    "type": "1106",
+                    "value": valores[12],
+                    "unit": "h"
+                }, {
+                    "name": "Bateria",
+                    "type": "5",
+                    "value": bateria,
+                    "unit": "%"
+                }
+                ,
+
+
+
+
+
+                {
+                    "name": "Señal",
+                    "type": "15",
+                    "value": senal,
+                    "unit": "%"
+                }
+
+            ]
+
+
 
 
 
