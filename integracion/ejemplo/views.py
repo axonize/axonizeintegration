@@ -175,9 +175,9 @@ def envioazure(Autorizacion, DeviceID,Nombre,appId,productId, values,tipo,bateri
         dato=0
         print values
         if values=="True":
-            dato=1
-        elif values=="False":
             dato=0
+        elif values=="False":
+            dato=1
 
         dictjson["type"] = 991
 
