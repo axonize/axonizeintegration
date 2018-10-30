@@ -6,6 +6,7 @@ from django.db import models
 
 opciones = (
     ('Temperatura/Humedad', 'Temperatura/Humedad'),
+    ('Temperatura', 'Temperatura'),	
     ('Movimiento', 'Movimiento'),
     ('Detector Voltaje', 'Detector Voltaje'),
     ('Medidor Voltaje', 'Medidor Voltaje'),
