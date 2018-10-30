@@ -139,6 +139,30 @@ def envioazure(Autorizacion, DeviceID,Nombre,appId,productId, values,tipo,bateri
             }
 
         ]
+    if tipo == "Temperatura":
+        
+        dictjson["type"]=991
+        #dictjson["unit"]: "%",
+        dictjson["value"] =[
+            {
+                "name": "Temperatura",
+                "type": "7",
+                "value": values
+            }
+            , {
+                "name": "Bateria",
+                "type": "5",
+                "value": bateria,
+                "unit": "%"
+            }
+            , {
+                "name": "Señal",
+                "type": "15",
+                "value": senal,
+                "unit": "%"
+            }
+
+        ]
     if tipo == "Movimiento":
         dato=0
         print values
