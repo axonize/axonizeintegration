@@ -1,0 +1,8 @@
+version: "1"
+services:
+  python-integration:
+    build: .
+    image: python-integration
+    container_name: python-integration
+    ports:
+      - "8000:80"

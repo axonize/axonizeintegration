@@ -1,0 +1,38 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: python-integration
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: python-integration
+    spec:
+      containers:
+        - name: python-integration
+          image: devcontainerregistry.azurecr.io/python-integration
+          resources:
+            requests:
+              memory: "50Mi"
+              cpu: "100m"
+            limits:
+              memory: "500Mi"
+              cpu: "0.5"
+      imagePullSecrets:
+        - name: deployment
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: python-integration
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "{isInternalIP}"
+spec:
+  selector:
+    app: python-integration
+  ports:
+    - name: python-integration
+      port: 80
+      targetPort: 8000
+  type: LoadBalancer
